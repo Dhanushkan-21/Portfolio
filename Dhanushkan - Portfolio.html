@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dhanushkan | IT Support &amp; Technical Support</title>
+<meta name="description" content="Personal portfolio of Dhanushkan, an entry-level IT Support and Technical Support candidate in Colombo, Sri Lanka, developing foundational skills in networking and cybersecurity.">
+<meta property="og:title" content="Dhanushkan | IT Support &amp; Technical Support">
+<meta property="og:description" content="ICT graduate with customer-facing hospitality experience, currently building foundational knowledge in IT support, networking, and cybersecurity.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================= TOKENS ============================= */
+:root{
+  --bg:#070A0E;
+  --surface:rgba(19,27,36,.58);
+  --surface-solid:#131B24;
+  --surface-2:rgba(25,35,46,.68);
+  --border:rgba(120,150,165,.20);
+  --border-soft:rgba(120,150,165,.12);
+  --text:#EAF0F3;
+  --text-dim:#A7B7C1;
+  --text-mute:#71838D;
+  --cyan:#43E8D8;
+  --cyan-dim:rgba(67,232,216,.14);
+  --amber:#F0AC4A;
+  --amber-dim:rgba(240,172,74,.14);
+  --font-display:'Chakra Petch',sans-serif;
+  --font-body:'Manrope',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+  --maxw:1140px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font-body);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;letter-spacing:.005em;}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:4px;}
+@media (prefers-reduced-motion: reduce){*{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important;}}
+
+/* ============================= ANIMATED BACKGROUND LAYER ============================= */
+.bg-frame{position:fixed;inset:0;z-index:-2;overflow:hidden;background:#050708;}
+.bg-frame iframe{width:100%;height:100%;border:0;display:block;}
+.bg-overlay{
+  position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    linear-gradient(180deg, rgba(5,7,9,.62) 0%, rgba(5,7,9,.55) 30%, rgba(5,7,9,.78) 75%, rgba(5,7,9,.94) 100%);
+}
+
+/* ============================= UTILITIES ============================= */
+.eyebrow{
+  font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--cyan);display:inline-flex;align-items:center;gap:10px;margin-bottom:14px;
+}
+.eyebrow::before{content:"";width:7px;height:7px;background:var(--cyan);border-radius:1px;box-shadow:0 0 8px var(--cyan);}
+.section-head{max-width:660px;margin-bottom:44px;}
+.section-head h2{font-size:clamp(26px,3.4vw,36px);margin-bottom:12px;}
+.section-head p{color:var(--text-dim);font-size:15.5px;}
+section{padding:88px 0;border-bottom:1px solid var(--border-soft);}
+.glass{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:14px;
+  backdrop-filter:blur(16px) saturate(140%);
+  -webkit-backdrop-filter:blur(16px) saturate(140%);
+}
+.chip{font-family:var(--font-mono);font-size:11.5px;padding:5px 11px;border:1px solid var(--border);border-radius:100px;color:var(--text-dim);}
+.btn{
+  font-family:var(--font-mono);font-size:13.5px;letter-spacing:.03em;padding:13px 22px;border-radius:7px;
+  display:inline-flex;align-items:center;gap:9px;border:1px solid var(--border);cursor:pointer;
+  transition:transform .15s ease, border-color .15s ease, background .15s ease;
+}
+.btn-primary{background:var(--cyan);color:#052220;border-color:var(--cyan);font-weight:600;}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 26px -8px rgba(67,232,216,.55);}
+.btn-ghost{color:var(--text);background:rgba(255,255,255,.02);}
+.btn-ghost:hover{border-color:var(--cyan);color:var(--cyan);transform:translateY(-2px);}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+.reveal.in-view{opacity:1;transform:translateY(0);}
+
+/* ============================= NAV ============================= */
+header{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(16px);background:rgba(7,10,14,.55);border-bottom:1px solid var(--border-soft);}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;}
+.brand{font-family:var(--font-display);font-weight:700;font-size:17px;letter-spacing:.01em;display:flex;align-items:center;gap:8px;}
+.brand-dot{width:8px;height:8px;background:var(--cyan);border-radius:2px;box-shadow:0 0 10px var(--cyan);}
+.nav-links{display:flex;gap:28px;align-items:center;}
+.nav-links a{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--text-dim);transition:color .15s ease;}
+.nav-links a:hover{color:var(--cyan);}
+.nav-cta{font-family:var(--font-mono);font-size:12.5px;padding:9px 16px;border:1px solid var(--border);border-radius:7px;color:var(--text);transition:all .15s ease;}
+.nav-cta:hover{border-color:var(--cyan);color:var(--cyan);}
+.nav-toggle{display:none;background:none;border:1px solid var(--border);border-radius:7px;width:40px;height:40px;color:var(--text);cursor:pointer;align-items:center;justify-content:center;}
+@media (max-width:900px){
+  .nav-links{position:fixed;top:68px;left:0;right:0;background:rgba(9,13,18,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border-soft);flex-direction:column;align-items:flex-start;padding:20px 24px 28px;gap:18px;transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .2s ease, transform .2s ease;}
+  .nav-links.open{opacity:1;transform:translateY(0);pointer-events:auto;}
+  .nav-cta{display:none;}
+  .nav-toggle{display:flex;}
+}
+
+/* ============================= HERO ============================= */
+.hero{padding:164px 0 90px;border-bottom:1px solid var(--border-soft);}
+.hero .container{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;}
+.hero h1{font-size:clamp(34px,5vw,52px);line-height:1.1;margin-bottom:20px;}
+.hero h1 span{color:var(--cyan);}
+.hero p.lead{color:var(--text-dim);font-size:16.5px;max-width:520px;margin-bottom:26px;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px;}
+.contact-strip{display:flex;flex-wrap:wrap;gap:10px;}
+.contact-strip .chip{display:inline-flex;align-items:center;gap:7px;}
+.contact-strip svg{width:13px;height:13px;color:var(--cyan);}
+
+.badge-card{position:relative;padding:26px;overflow:hidden;box-shadow:0 30px 70px -30px rgba(0,0,0,.7);}
+.badge-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, transparent 0%, rgba(67,232,216,.08) 45%, transparent 90%);transform:translateY(-100%);animation:scan 4.5s ease-in-out infinite;pointer-events:none;}
+@keyframes scan{0%{transform:translateY(-100%);}55%{transform:translateY(100%);}100%{transform:translateY(100%);}}
+.badge-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;}
+.badge-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;color:var(--text-mute);text-transform:uppercase;}
+.badge-status{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.08em;color:var(--amber);border:1px solid var(--amber-dim);background:var(--amber-dim);padding:3px 9px;border-radius:100px;}
+.badge-avatar{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--cyan-dim),transparent);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--cyan);margin-bottom:16px;}
+.badge-name{font-family:var(--font-display);font-size:22px;font-weight:700;margin-bottom:4px;}
+.badge-role{color:var(--text-dim);font-size:13.5px;margin-bottom:20px;}
+.badge-meta{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding-top:18px;border-top:1px dashed var(--border);}
+.badge-meta span{display:block;font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-mute);margin-bottom:4px;}
+.badge-meta strong{font-size:13px;font-weight:600;color:var(--text);}
+.badge-barcode{margin-top:22px;height:28px;border-radius:4px;background:repeating-linear-gradient(90deg, var(--text-mute) 0 2px, transparent 2px 5px, var(--border) 5px 7px, transparent 7px 11px);opacity:.5;}
+@media (max-width:900px){.hero .container{grid-template-columns:1fr;}.hero{padding-top:126px;}}
+
+/* ============================= SUMMARY ============================= */
+.summary-box{padding:34px 36px;}
+.summary-box p{color:var(--text-dim);font-size:16px;margin-bottom:20px;}
+.summary-box p:last-child{margin-bottom:0;}
+.pursuing-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;padding-top:22px;border-top:1px solid var(--border-soft);}
+.pursuing-row .label{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-mute);width:100%;margin-bottom:6px;}
+.pursuing-pill{font-family:var(--font-mono);font-size:12px;color:var(--amber);border:1px solid var(--amber-dim);background:var(--amber-dim);padding:6px 13px;border-radius:100px;}
+
+/* ============================= CORE SKILLS ============================= */
+.skill-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.skill-group{padding:22px 24px;}
+.skill-group h4{font-size:13px;font-family:var(--font-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--cyan);margin-bottom:14px;}
+.skill-group ul{display:flex;flex-direction:column;gap:9px;}
+.skill-group li{font-size:14.5px;color:var(--text-dim);display:flex;align-items:center;gap:10px;}
+.skill-group li::before{content:"";width:5px;height:5px;background:var(--cyan);opacity:.7;flex-shrink:0;}
+.lang-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;}
+@media (max-width:900px){.skill-groups{grid-template-columns:1fr 1fr;}}
+@media (max-width:600px){.skill-groups{grid-template-columns:1fr;}}
+.skill-group li{justify-content:space-between;}
+.skill-name{display:flex;align-items:center;gap:10px;}
+.skill-name::before{content:"";width:5px;height:5px;background:var(--cyan);opacity:.7;flex-shrink:0;}
+.skill-group li::before{content:none;}
+.level-pill{font-family:var(--font-mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;padding:2px 9px;border-radius:100px;border:1px solid var(--border);color:var(--text-mute);flex-shrink:0;white-space:nowrap;}
+.level-pill.learning{color:var(--amber);border-color:var(--amber-dim);background:var(--amber-dim);}
+.level-pill.familiar{color:var(--cyan);border-color:var(--cyan-dim);background:var(--cyan-dim);}
+
+/* ============================= SOCIAL LINKS ============================= */
+.social-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
+.social-link{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:12.5px;padding:9px 16px;border:1px solid var(--border);border-radius:7px;color:var(--text);transition:all .15s ease;}
+.social-link:hover{border-color:var(--cyan);color:var(--cyan);transform:translateY(-2px);}
+.social-link svg{width:15px;height:15px;}
+
+/* ============================= LEARNING / PROJECTS ============================= */
+.learn-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;}
+.learn-card{padding:22px;position:relative;}
+.learn-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--amber),transparent);border-radius:14px 14px 0 0;}
+.learn-title{font-size:15.5px;font-weight:600;margin-bottom:8px;}
+.project-card{padding:26px 28px;}
+.project-title{font-size:17.5px;font-weight:600;font-family:var(--font-display);margin-bottom:4px;}
+.project-meta{font-family:var(--font-mono);font-size:11.5px;color:var(--text-mute);margin-bottom:12px;}
+.project-desc{color:var(--text-dim);font-size:14.5px;}
+
+/* ============================= EXPERIENCE ============================= */
+.exp-list{display:flex;flex-direction:column;gap:18px;}
+.exp-card{padding:26px 28px;display:grid;grid-template-columns:230px 1fr;gap:24px;}
+.exp-role{font-size:17.5px;font-weight:600;font-family:var(--font-display);}
+.exp-org{color:var(--cyan);font-size:13.5px;margin-top:2px;}
+.exp-loc{color:var(--text-mute);font-size:12.5px;margin-top:2px;}
+.exp-meta{font-family:var(--font-mono);font-size:11.5px;color:var(--text-mute);margin-top:10px;}
+.exp-card ul{display:flex;flex-direction:column;gap:9px;}
+.exp-card li{font-size:14.5px;color:var(--text-dim);padding-left:16px;position:relative;}
+.exp-card li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;background:var(--amber);}
+@media (max-width:760px){.exp-card{grid-template-columns:1fr;}}
+
+/* ============================= EDUCATION (timeline) ============================= */
+.timeline{position:relative;padding-left:28px;}
+.timeline::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:var(--border);}
+.tl-item{position:relative;padding-bottom:32px;}
+.tl-item:last-child{padding-bottom:0;}
+.tl-item::before{content:"";position:absolute;left:-28px;top:5px;width:11px;height:11px;border-radius:3px;background:var(--bg);border:2px solid var(--cyan);}
+.tl-item.highlight::before{background:var(--cyan);box-shadow:0 0 10px var(--cyan);}
+.tl-item.progress::before{border-color:var(--amber);}
+.tl-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:6px;}
+.tl-date{font-family:var(--font-mono);font-size:12px;color:var(--cyan);}
+.tl-tag{font-family:var(--font-mono);font-size:10.5px;color:var(--text-mute);}
+.tl-title{font-size:16.5px;font-weight:600;margin-bottom:3px;}
+.tl-sub{color:var(--text-dim);font-size:14px;}
+.tl-result{display:inline-block;margin-top:8px;font-family:var(--font-mono);font-size:11px;padding:3px 10px;border-radius:100px;border:1px solid var(--amber-dim);background:var(--amber-dim);color:var(--amber);}
+.tl-result.progress{border-color:var(--cyan-dim);background:var(--cyan-dim);color:var(--cyan);}
+
+/* ============================= CERTIFICATIONS ============================= */
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;}
+.cert-card{padding:22px;position:relative;}
+.cert-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),transparent);border-radius:14px 14px 0 0;}
+.cert-title{font-size:15.5px;font-weight:600;margin-bottom:4px;}
+.cert-full{font-family:var(--font-mono);font-size:11.5px;color:var(--text-mute);}
+
+/* ============================= CONTACT ============================= */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+.contact-list{display:flex;flex-direction:column;gap:14px;}
+.contact-item{display:flex;align-items:center;gap:14px;padding:16px 18px;transition:border-color .15s ease;}
+.contact-item:hover{border-color:var(--cyan);}
+.contact-icon{width:36px;height:36px;border-radius:8px;background:var(--cyan-dim);color:var(--cyan);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.contact-icon svg{width:17px;height:17px;}
+.contact-label{font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mute);margin-bottom:2px;}
+.contact-value{font-size:14.5px;font-weight:500;}
+.contact-form{display:flex;flex-direction:column;gap:12px;padding:26px;}
+.contact-form input,.contact-form textarea{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:8px;padding:13px 14px;color:var(--text);font-family:var(--font-body);font-size:14px;width:100%;}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:var(--text-mute);}
+.contact-form textarea{resize:vertical;min-height:100px;}
+@media (max-width:800px){.contact-grid{grid-template-columns:1fr;}}
+
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.form-note{font-family:var(--font-mono);font-size:11.5px;color:var(--text-mute);margin-top:2px;}
+
+footer{padding:40px 0;}
+.footer-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.footer-row p{font-family:var(--font-mono);font-size:12px;color:var(--text-mute);}
+.footer-links{display:flex;gap:22px;}
+.footer-links a{font-family:var(--font-mono);font-size:12px;color:var(--text-mute);transition:color .15s ease;}
+.footer-links a:hover{color:var(--cyan);}
+</style>
+</head>
+<body>
+
+<!-- Decorative animated shader background -->
+<div class="bg-frame" aria-hidden="true">
+  <iframe src="https://cdn.21st.dev/minhxthanh/animated-shader-background/default/bundle.1749003393329.html?theme=dark&amp;dark=true" title="" tabindex="-1" loading="lazy"></iframe>
+</div>
+<div class="bg-overlay" aria-hidden="true"></div>
+
+<header>
+  <div class="container nav">
+    <a href="#" class="brand"><span class="brand-dot"></span>DHANUSHKAN</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#summary">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#learning">Learning</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="nav-cta">Get In Touch</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ============================= HERO ============================= -->
+<section class="hero">
+  <div class="container">
+    <div class="reveal in-view">
+      <span class="eyebrow">Entry-Level IT Support · Aspiring Cybersecurity</span>
+      <h1>Dhanushkan —<br>Entry-Level IT Support, <span>developing skills in networking &amp; cybersecurity.</span></h1>
+      <p class="lead">ICT graduate with customer-facing hospitality experience, currently building foundational knowledge in IT support, networking, and cybersecurity.</p>
+      <div class="hero-actions">
+        <a href="#experience" class="btn btn-primary">View My Experience</a>
+        <a href="#contact" class="btn btn-ghost">Contact Me</a>
+      </div>
+      <div class="contact-strip">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg>Colombo, Sri Lanka</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.68 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0122 16.92z"/></svg>+94 76 477 7573</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg>dhanushkan2106@gmail.com</span>
+      </div>
+      <div class="social-row">
+        <a class="social-link" href="https://github.com/Dhanushkan-21" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile (opens in new tab)">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.98 5.24.98 11.52c0 5.01 3.25 9.26 7.77 10.76.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.11-3.16.69-3.83-1.34-3.83-1.34-.52-1.31-1.26-1.66-1.26-1.66-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.73 2.65 1.23 3.3.94.1-.73.4-1.23.72-1.51-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.15 1.16a10.9 10.9 0 015.73 0c2.18-1.47 3.14-1.16 3.14-1.16.62 1.57.23 2.73.11 3.02.73.79 1.17 1.8 1.17 3.04 0 4.35-2.66 5.31-5.19 5.59.41.35.77 1.04.77 2.11 0 1.52-.01 2.75-.01 3.12 0 .3.2.66.79.55A11.02 11.02 0 0023.02 11.5C23.02 5.24 18.27.5 12 .5z"/></svg>
+          GitHub
+        </a>
+        <a class="social-link" href="https://www.linkedin.com/in/dhanushkan-selvararj" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in new tab)">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.11 20.45H3.56V9h3.55v11.45z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+
+    <div class="badge-card glass reveal in-view">
+      <div class="badge-top">
+        <span class="badge-label">Access Card // Entry</span>
+        <span class="badge-status">IN TRAINING</span>
+      </div>
+      <div class="badge-avatar">DK</div>
+      <div class="badge-name">Dhanushkan</div>
+      <div class="badge-role">Entry-Level IT Support</div>
+      <div class="badge-meta">
+        <div><span>Diploma</span><strong>ICT — Distinction</strong></div>
+        <div><span>Learning</span><strong>Networking &amp; Cybersecurity</strong></div>
+        <div><span>Background</span><strong>Hospitality</strong></div>
+        <div><span>Languages</span><strong>TA · EN · SI</strong></div>
+      </div>
+      <div class="badge-barcode"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= PROFESSIONAL SUMMARY ============================= -->
+<section id="summary">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">// Professional Summary</span>
+      <h2>Summary</h2>
+    </div>
+    <div class="summary-box glass reveal">
+      <p>Detail-oriented professional transitioning from hospitality into IT Support and Customer Service. Experienced in customer-facing environments, front-office operations, computer-based systems, communication, teamwork, and problem solving.</p>
+      <p>Currently building foundational knowledge in IT, networking, and cybersecurity while seeking an entry-level opportunity to develop practical technical experience. Strong communicator across English, Tamil, and Sinhala, with a track record of reliability and adaptability in fast-paced environments.</p>
+      <div class="pursuing-row">
+        <span class="label">Currently Learning</span>
+        <span class="pursuing-pill">Networking Fundamentals</span>
+        <span class="pursuing-pill">Cybersecurity Fundamentals</span>
+        <span class="pursuing-pill">IT Help Desk Fundamentals</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= CORE SKILLS ============================= -->
+<section id="skills">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">// Core Skills</span>
+      <h2>What I bring to an IT team</h2>
+    </div>
+    <div class="skill-groups reveal">
+      <div class="skill-group glass">
+        <h4>IT &amp; Technical Foundations</h4>
+        <ul>
+          <li><span class="skill-name">Computer Literacy</span><span class="level-pill familiar">Familiar</span></li>
+          <li><span class="skill-name">IT Fundamentals</span><span class="level-pill">Basic</span></li>
+          <li><span class="skill-name">Technical Troubleshooting</span><span class="level-pill">Basic</span></li>
+          <li><span class="skill-name">Networking Fundamentals</span><span class="level-pill learning">Learning</span></li>
+          <li><span class="skill-name">Cybersecurity Fundamentals</span><span class="level-pill learning">Learning</span></li>
+          <li><span class="skill-name">Windows / Computer Systems</span><span class="level-pill familiar">Familiar</span></li>
+        </ul>
+      </div>
+      <div class="skill-group glass">
+        <h4>Customer &amp; Professional Skills</h4>
+        <ul>
+          <li><span class="skill-name">Customer Service</span></li>
+          <li><span class="skill-name">Communication</span></li>
+          <li><span class="skill-name">Problem Solving</span></li>
+          <li><span class="skill-name">Teamwork</span></li>
+          <li><span class="skill-name">Attention to Detail</span></li>
+          <li><span class="skill-name">Adaptability</span></li>
+          <li><span class="skill-name">Time Management</span></li>
+        </ul>
+      </div>
+      <div class="skill-group glass">
+        <h4>Office &amp; Digital Skills</h4>
+        <ul>
+          <li><span class="skill-name">Microsoft Office</span></li>
+          <li><span class="skill-name">Email Handling</span></li>
+          <li><span class="skill-name">Data Entry</span></li>
+          <li><span class="skill-name">Computer-Based Systems</span></li>
+          <li><span class="skill-name">Canva</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="lang-row reveal">
+      <span class="chip">Tamil — Native</span>
+      <span class="chip">English — Professional</span>
+      <span class="chip">Sinhala — Working Proficiency</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= CURRENTLY LEARNING ============================= -->
+<section id="learning">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">// Currently Learning</span>
+      <h2>Actively developing my technical knowledge</h2>
+      <p>Foundation-level topics I'm working through on my own, alongside my formal studies.</p>
+    </div>
+    <div class="learn-grid reveal">
+      <div class="learn-card glass">
+        <div class="learn-title">Networking Fundamentals</div>
+        <span class="level-pill learning">Currently Learning</span>
+      </div>
+      <div class="learn-card glass">
+        <div class="learn-title">Cybersecurity Fundamentals</div>
+        <span class="level-pill learning">Currently Learning</span>
+      </div>
+      <div class="learn-card glass">
+        <div class="learn-title">IT Support &amp; Help Desk Fundamentals</div>
+        <span class="level-pill learning">Foundation Level</span>
+      </div>
+      <div class="learn-card glass">
+        <div class="learn-title">Computer Troubleshooting</div>
+        <span class="level-pill learning">Developing</span>
+      </div>
+      <div class="learn-card glass">
+        <div class="learn-title">CCNA-Related Networking Concepts</div>
+        <span class="level-pill learning">Currently Learning</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= EXPERIENCE ============================= -->
+<section id="experience">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">// Professional Experience</span>
+      <h2>Where I've worked</h2>
+    </div>
+    <div class="exp-list reveal">
+      <div class="exp-card glass">
+        <div>
+          <div class="exp-role">Food &amp; Beverage Attendant</div>
+          <div class="exp-org">Occidental Paradise</div>
+          <div class="exp-loc">Dambulla, Sri Lanka</div>
+          <div class="exp-meta">2026 · 6 MONTHS</div>
+        </div>
+        <ul>
+          <li>Delivered professional customer service in a fast-paced environment.</li>
+          <li>Handled customer requests and concerns professionally.</li>
+          <li>Maintained order accuracy and service quality under time pressure.</li>
+          <li>Used computer-based systems for order processing and operational tasks.</li>
+          <li>Worked collaboratively with team members to maintain smooth daily operations.</li>
+        </ul>
+      </div>
+      <div class="exp-card glass">
+        <div>
+          <div class="exp-role">Trainee Receptionist</div>
+          <div class="exp-org">Heritance Tea Factory</div>
+          <div class="exp-loc">Kandapola, Sri Lanka</div>
+          <div class="exp-meta">2025 · 6 MONTHS</div>
+        </div>
+        <ul>
+          <li>Managed front-desk operations, guest check-in/check-out, and reservation systems.</li>
+          <li>Handled customer queries and concerns professionally.</li>
+          <li>Communicated with guests through face-to-face, telephone, and email interactions.</li>
+          <li>Coordinated with internal departments to resolve customer issues.</li>
+          <li>Maintained accurate digital and physical records.</li>
+        </ul>
+      </div>
+      <div class="exp-card glass">
+        <div>
+          <div class="exp-role">Trainee Room Attendant</div>
+          <div class="exp-org">Heritance Tea Factory</div>
+          <div class="exp-loc">Kandapola, Sri Lanka</div>
+          <div class="exp-meta">2025 · 6 MONTHS</div>
+        </div>
+        <ul>
+          <li>Maintained service standards and attention to detail in a structured environment.</li>
+          <li>Followed established procedures and quality standards.</li>
+          <li>Reported maintenance or operational issues when identified.</li>
+          <li>Worked effectively with team members across shifts.</li>
+          <li>Demonstrated reliability, discipline, and adaptability.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= EDUCATION ============================= -->
+<section id="education">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">// Education</span>
+      <h2>Education</h2>
+    </div>
+    <div class="timeline reveal">
+      <div class="tl-item progress">
+        <div class="tl-head"><span class="tl-date">2026</span><span class="tl-tag">:: IN_PROGRESS</span></div>
+        <div class="tl-title">SQA Advanced Level Diploma</div>
+        <div class="tl-sub">Cicra Campus, Sri Lanka</div>
+        <span class="tl-result progress">Currently Pursuing</span>
+      </div>
+      <div class="tl-item highlight">
+        <div class="tl-head"><span class="tl-date">2022</span><span class="tl-tag">:: ICT</span></div>
+        <div class="tl-title">Diploma in Information &amp; Communication Technology (ICT)</div>
+        <div class="tl-sub">ICBT Campus, Kolpitiya, Sri Lanka · 06 Months</div>
+        <span class="tl-result">Result: Distinction</span>
+      </div>
+      <div class="tl-item">
+        <div class="tl-head"><span class="tl-date">2019</span><span class="tl-tag">:: LANGUAGE</span></div>
+        <div class="tl-title">Diploma in English</div>
+        <div class="tl-sub">ESOFT Metro Campus · 06 Months</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-head"><span class="tl-date">2021</span><span class="tl-tag">:: GENERAL_EDUCATION</span></div>
+        <div class="tl-title">GCE Advanced Level</div>
+        <div class="tl-sub">Bio Science Stream</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-head"><span class="tl-date">2018</span><span class="tl-tag">:: GENERAL_EDUCATION</span></div>
+        <div class="tl-title">GCE Ordinary Level — 10 Passes</div>
+        <div class="tl-sub">Including C grades in English, Mathematics, Science &amp; ICT</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= ADDITIONAL CERTIFICATIONS ============================= -->
+<section id="certifications">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">// Additional Certifications</span>
+      <h2>Additional Certifications</h2>
+    </div>
+    <div class="cert-grid reveal">
+      <div class="cert-card glass">
+        <div class="cert-title">Restaurant &amp; Bar Operations Certificate</div>
+        <div class="cert-full">SLITHM · 6 Months · 2025</div>
+      </div>
+      <div class="cert-card glass">
+        <div class="cert-title">Front Office Operations Certificate</div>
+        <div class="cert-full">SLITHM · 6 Months · 2024</div>
+      </div>
+      <div class="cert-card glass">
+        <div class="cert-title">Housekeeping Certificate</div>
+        <div class="cert-full">SLITHM · 6 Months · 2023</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= PROJECTS & LEARNING ============================= -->
+<section id="projects">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">// Projects &amp; Learning</span>
+      <h2>Projects &amp; Learning</h2>
+    </div>
+    <div class="project-card glass reveal">
+      <div class="project-title">Personal Portfolio Website</div>
+      <div class="project-meta">Personal Project · In Progress</div>
+      <p class="project-desc">Designed and developed a responsive personal portfolio website to present my education, professional experience, skills, and career transition into IT.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= CONTACT ============================= -->
+<section id="contact" style="border-bottom:none;">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">// Contact</span>
+      <h2>Let's talk about an opportunity.</h2>
+      <p>Open to entry-level IT Support, Technical Support, and Cybersecurity Trainee roles.</p>
+    </div>
+    <div class="contact-grid reveal">
+      <div class="contact-list">
+        <div class="contact-item glass">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><div class="contact-label">Location</div><div class="contact-value">Colombo, Sri Lanka</div></div>
+        </div>
+        <div class="contact-item glass">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.68 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0122 16.92z"/></svg></div>
+          <div><div class="contact-label">Phone</div><div class="contact-value"><a href="tel:+94764777573">+94 76 477 7573</a></div></div>
+        </div>
+        <div class="contact-item glass">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg></div>
+          <div><div class="contact-label">Email</div><div class="contact-value"><a href="mailto:dhanushkan2106@gmail.com">dhanushkan2106@gmail.com</a></div></div>
+        </div>
+        <div class="contact-item glass">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.11 20.45H3.56V9h3.55v11.45z"/></svg></div>
+          <div><div class="contact-label">LinkedIn</div><div class="contact-value"><a href="https://www.linkedin.com/in/dhanushkan-selvararj" target="_blank" rel="noopener noreferrer">dhanushkan-selvararj</a></div></div>
+        </div>
+        <div class="contact-item glass">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.98 5.24.98 11.52c0 5.01 3.25 9.26 7.77 10.76.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.11-3.16.69-3.83-1.34-3.83-1.34-.52-1.31-1.26-1.66-1.26-1.66-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.73 2.65 1.23 3.3.94.1-.73.4-1.23.72-1.51-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.15 1.16a10.9 10.9 0 015.73 0c2.18-1.47 3.14-1.16 3.14-1.16.62 1.57.23 2.73.11 3.02.73.79 1.17 1.8 1.17 3.04 0 4.35-2.66 5.31-5.19 5.59.41.35.77 1.04.77 2.11 0 1.52-.01 2.75-.01 3.12 0 .3.2.66.79.55A11.02 11.02 0 0023.02 11.5C23.02 5.24 18.27.5 12 .5z"/></svg></div>
+          <div><div class="contact-label">GitHub</div><div class="contact-value"><a href="https://github.com/Dhanushkan-21" target="_blank" rel="noopener noreferrer">Dhanushkan-21</a></div></div>
+        </div>
+      </div>
+      <form class="contact-form glass" id="contactForm">
+        <label for="cf-name" class="sr-only">Your name</label>
+        <input type="text" id="cf-name" name="name" placeholder="Your name" aria-label="Your name" required>
+        <label for="cf-email" class="sr-only">Your email</label>
+        <input type="email" id="cf-email" name="email" placeholder="Your email" aria-label="Your email" required>
+        <label for="cf-message" class="sr-only">Message</label>
+        <textarea id="cf-message" name="message" placeholder="Message" aria-label="Message" required></textarea>
+        <button type="submit" class="btn btn-primary" style="justify-content:center;">Send Message</button>
+        <p class="form-note" id="cf-note">This opens your email app with the message pre-filled — no data is sent from this page.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-row">
+    <p>&copy; 2026 Dhanushkan. Entry-Level IT Support.</p>
+    <div class="footer-links">
+      <a href="#summary">About</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <a href="https://github.com/Dhanushkan-21" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/dhanushkan-selvararj" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', open);
+});
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  });
+});
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('cf-name').value.trim();
+    const email = document.getElementById('cf-email').value.trim();
+    const message = document.getElementById('cf-message').value.trim();
+    const subject = encodeURIComponent(`Portfolio contact from ${name || 'website visitor'}`);
+    const body = encodeURIComponent(`${message}\n\n— ${name}\n${email}`);
+    window.location.href = `mailto:dhanushkan2106@gmail.com?subject=${subject}&body=${body}`;
+  });
+}
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+      io.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+revealEls.forEach(el => io.observe(el));
+</script>
+</body>
+</html>
